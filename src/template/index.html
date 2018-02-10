@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0 , maximum-scale=1.0 , user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>晒年夜饭，赢千元红包</title>
+    <style>
+    .homePage .ruler.title {
+	 fill: #ffffff;
+	}
+	.homePage .ruler {
+	 fill: #f7af54;
+	}
+    .md-cont{position:fixed;left:0;right: 0;top:0;bottom: 0;z-index: 500;background:rgba(0,0,0,0.3);text-align:center;overflow: hidden;white-space:nowrap;}
+    .md-cont:after{content:"";display:inline-block;width:0;height:100%;visibility: hidden;vertical-align:middle;}
+    .md-wrapper{display:inline-block;vertical-align:middle;background:#fff;color:#333333;font-size:0.34rem;padding-top:0.2rem;border-radius: 0.1rem;max-width:100%;}
+    .md-title{font-size:0.34rem;text-align:center;line-height:0.6rem;}
+    .md-text{font-size:0.25rem;text-align:center;line-height:0.4rem;padding:0.2rem 0.5rem;}
+    .footer{display:flex;border-top:0.01rem solid #E5E5E5;line-height:0.88rem;color:#488BF1;font-size:0.32rem;}
+    .md-btn{flex:1;}
+    .md-btn +.md-btn{border-left:0.01rem solid #E5E5E5;}
+	</style>
+    <script src='https://cdn.bootcss.com/axios/0.17.1/axios.min.js'></script>
+    <script src='https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js'></script>
+</head>
+<body>
+    <div class="box homePage" id="standardSize">
+        <div class="section1">
+            <svg class="fullPage" version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 750 1179" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <image xlink:href="./../images/homePage_1.png" width="750" height="1179"/>
+                <a xlink:href='javascript:;' onclick='joinorlook()'>
+                    <image xlink:href="./../images/homePage_button_1.png" width="214" height="84" x="30" y="1010" />
+                    <text class="join" font-size="40" x="96" y="1065" id='wd1' >参与</text>
+                </a>
+                 <a xlink:href='family_photowall.html'>
+                    <image xlink:href="./../images/homePage_button_1.png" width="214" height="84" x="265" y="1010"/>
+                    <text class="vote" font-size="40" x="334" y="1065" >投票</text>
+                </a>
+                <a xlink:href='javascript:;' onclick='queryaward()'>
+                    <image xlink:href="./../images/homePage_button_2.png"  width="214" height="84" x="510" y="1010" />
+                    <text class="award" font-size="40" x="536" y="1065" >获奖查询</text>
+                </a>
+            </svg>
+        </div>
+        <div class="section2">
+            <svg version="1.1" preserveAspectRatio="xMinYMin meet" viewBox="0 0 750 1765" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <image xlink:href="./../images/homePage_2.png" width="750" height="1765"/>
+                <text font-size="28" x="219" y="108" class="adviseMsg">回家过的年，才是团圆年。</text>
+                <text font-size="28" x="206" y="156" class="adviseMsg">和家人吃的饭，才叫年夜饭。</text>
+                <text font-size="28" x="308" y="214" class="adviseMsg">114啦邀您：</text>
+                <text font-size="28" x="219" y="262" class="adviseMsg">晒晒年夜饭，拿惊喜大奖！</text>
+                <image xlink:href="./../images/homePage_jiang1.png" width="320" height="200" x="50" y="513"/>
+                <image xlink:href="./../images/homePage_jiang2.png" width="320" height="200" x="383" y="513"/>
+                <image xlink:href="./../images/homePage_jiang3.png" width="320" height="200" x="50" y="727"/>
+                <image xlink:href="./../images/homePage_jiang4.png" width="320" height="200" x="383" y="727"/>
+                <text font-size="26" x="253" y="1038" class="ruler">打开活动首页，点击参与；</text>
+                <text font-size="26" x="253" y="1173" class="ruler">下载114啦APP，并注册登录；</text>
+                <text font-size="26" x="253" y="1308" class="ruler">上传照片，编写文案，提交作品；</text>
+                <text font-size="26" x="253" y="1443" class="ruler">分享你的作品，邀请好友来投票</text>
+                <text font-size="32" x="50" y="1540" class="ruler title">投票规则：</text>
+                <text font-size="27" x="50" y="1586" class="ruler">1、每个用户，每天可以参与投票1次；</text>
+                <text font-size="27" x="50" y="1630" class="ruler">2、每日首次分享，可以增加1次投票机会；</text>
+                <text font-size="27" x="50" y="1677" class="ruler">3、获奖名单按照投票数由高到低排序；</text>
+                <text font-size="27" x="50" y="1721" class="ruler">4、成为经验号作者每日增加五次投票机会。</text>
+            </svg>
+        </div>
+    </div>
+</body>
+<script>
+   // util.init();
+    nianyefan.homePage.init();
+
+    function winconfirm(text,ok,cancel){
+        var str="<div class='md-wrapper' >\
+                    <div class='md-title'>\
+                        提示\
+                    </div>\
+                    <div class='md-text'>\
+                        "+text+"\
+                    </div>\
+                    <div class='footer'>\
+                        <div id='confcancel' class='md-btn'>取消</div>\
+                        <div class='md-btn' id='confok'>确定</div>\
+                    </div>\
+                </div>";
+        var div=document.createElement("div");
+        div.className='md-cont';
+        div.innerHTML=str;
+        document.body.appendChild(div);
+        var btn1=$(div).find("#confcancel")[0];
+        var btn2=$(div).find("#confok")[0];
+
+        var win={
+            close:function(){
+                document.body.removeChild(div);
+            }
+        }
+        btn1.addEventListener("click",function(){
+            if(cancel&&typeof cancel =="function"){
+               cancel.call(window,win); 
+            }else{
+                win.close();
+            }
+        });
+        
+        btn2.addEventListener("click",function(){
+            if(ok&&typeof ok =="function"){
+               ok.call(window,win);
+               
+            }else{
+                win.close();
+            }
+        });
+    }
+
+    function queryaward(){
+        $.post("/YearFood/winsText",function(res){
+            if(res.status==0){
+                alert("活动还在火热进行中，赶紧分享集赞吧！");
+            }else{
+                window.location.href="family_award.html";
+            }
+        },"json");
+    }
+    function checkhasjoin(){
+        checkAPPAndLogin();
+        if(window.usertoken){
+            $.post("/YearFood/get_user",{token:encodeURIComponent(usertoken.token)},function(res){
+                if(res.user_id!=null&&res.user_id!=""){
+                    
+                    window.userinfo=res;
+                    getfamily();
+                    //alert(JSON.stringify(window.userinfo));
+                }else{
+                    
+                }
+                //console.log(window.userinfo);
+                
+            },"json");
+        }
+    }
+    var workid;
+    function getfamily(){
+        if(window.userinfo&&window.userinfo.tel){
+                $.get("/YearFood/search/"+window.userinfo.tel+"/1",function(res){
+                    if(res.content&&res.content.length>=1&&res.status!=0){
+                        let content=res.content[0];
+                        workid=content.id;
+                        $("#wd1").html("我的");
+                    }
+                    if(res.status==0){
+                        alert("你的作品没通过审核，请重新参与");
+                    }
+                },"json");
+            }
+    }
+    function joinorlook(){
+        if(workid){
+            window.location.href='family_myfamily/'+workid;
+        }else{
+            if(window.userinfo){
+                window.location.href="family_joinin.html";
+            }else{
+                var str="请下载最新版114啦app并登录后参与活动";
+                if(window.Js114la){
+                    str="请登陆后参与此活动";
+                }
+                winconfirm(str,function(win){
+                    win.close();
+                    if(window.Js114la){
+                        if(Js114la.handle114laClientLogin){
+                                window.Js114la.handle114laClientLogin();
+                          }
+                    }else{
+                        window.location.href="http://www.114la.com/app/114la/index.html";
+                    }
+                });
+            }
+        }
+    }
+checkhasjoin();
+
+</script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8686c844404cafcf172ba7591add84a3";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</html>

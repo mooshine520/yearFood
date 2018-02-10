@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 , user-scalable=no" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我家年夜饭</title>
+    <script src='https://cdn.bootcss.com/axios/0.17.1/axios.min.js'></script>
+    <script src='https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js'></script>
+</head>
+<body>
+    <div class="box nianyefan awardPage" id="standardSize">
+        <img src="./../images/awardPage.png" class="pic">
+        <div class="specialAward">
+            <ul id='onetwo'>
+              <!--   <li>一等奖：用户133 *** 11</li>
+                <li>二等奖：用户185 *** 85</li>
+                <li>二等奖：用户185 *** 85</li>
+                <li>二等奖：用户185 *** 85</li>
+                <li>三等奖：用户158 *** 69</li>
+                <li>三等奖：用户158 *** 69</li>
+                <li>三等奖：用户158 *** 69</li>
+                <li>三等奖：用户158 *** 69</li>
+                <li>三等奖：用户158 *** 69</li> -->
+            </ul>
+        </div>
+        <div class="commonAward">
+            <ul class="slide">
+                <!-- <li>恭喜用户158 *** 14，获得10元糯米券</li>
+                <li>恭喜用户158 *** 14，获得10元糯米券</li>
+                <li>恭喜用户158 *** 14，获得10元糯米券</li>
+                <li>恭喜用户158 *** 14，获得10元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得20元糯米券</li>
+                <li>恭喜用户158 *** 14，获得10元糯米券</li>
+                <li>恭喜用户158 *** 14，获得10元糯米券</li>
+                <li>恭喜用户158 *** 14，获得10元糯米券</li>
+                <li>恭喜用户158 *** 14，获得10元糯米券</li> -->
+            </ul>
+        </div>
+        <button class="searchBtn" onclick="window.location.href='family_searchAward.html'">我要兑奖</button>
+    </div>
+</body>
+    <script>
+    util.init();
+    $.post("/YearFood/winsText",function(res){
+        if(res.status==0){
+            nianyefan.awardPage.init();
+            //没到开奖时间
+           //window.location.href='/family_index.html';
+        }else{
+            querywinners(res.content);
+        }
+    },"json");
+    //生成中奖内容
+    function querywinners(res){
+        var str="";
+        console.log(res);
+        if(res.one&&res.one.length){
+            for(var i=0;i<res.one.length;i++){
+                var tel=res.one[i].tel;
+               
+                str+="<li>一等奖：用户 "+formmattel(tel)+"</li>";
+            }
+        }
+        if(res.two&&res.two.length){
+            for(var i=0;i<res.two.length;i++){
+                var tel=res.two[i].tel;
+                str+="<li>二等奖：用户 "+formmattel(tel)+"</li>";
+            }
+        }
+        if(res.three&&res.three.length){
+            for(var i=0;i<res.three.length;i++){
+                var tel=res.three[i].tel;
+                str+="<li>三等奖：用户 "+formmattel(tel)+"</li>";
+            }
+        }
+        $("#onetwo").html(str);
+        var ostr="";
+        for(var i=0;i<res.other.length;i++){
+            var tel=res.other[i].tel;
+            ostr+="<li>恭喜用户"+formmattel(tel)+"获得鼓励奖</li>";
+        }
+        nianyefan.awardPage.init();
+    }
+    function formmattel(tel){
+         if(/^\d{11}$/.test(tel)){
+                tel=(tel+"").substring(0,3)+"****"+(tel+"").substring(7,11);
+         }
+         return tel
+    }
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8686c844404cafcf172ba7591add84a3";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</html>

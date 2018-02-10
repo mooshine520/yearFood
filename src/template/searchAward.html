@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0 , user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>我家年夜饭</title>
+    <script src='https://cdn.bootcss.com/axios/0.17.1/axios.min.js'></script>
+    <script src='https://cdn.bootcss.com/jquery/1.9.1/jquery.min.js'></script>
+</head>
+<body>
+    <div class="box nianyefan searchAwardPage" id="standardSize">
+        <!-- 搜索框 -->
+        <div class="searchBox">
+            <input type="text" id='teltext' name="searchContent" placeholder="请输入编号或手机号" />
+            <button class="searchBtn" onclick="searchluck()"></button>
+        </div>
+       <!--  <div class="awardMsg type1" style="display:none">
+            <span class="firstLine">很抱歉</span>
+            <br>
+            <span class="secondLine">本次活动您未获得奖项，</span>
+            <br>
+            <span class="secondLine">祝您春节愉快~</span>
+        </div> -->
+        <div class="awardMsg type2" >
+            <span class="firstLine"></span>
+            <br>
+            <span class="secondLine"></span>
+        </div>
+        <div class="notice">
+            <span class="title">温馨提示：</span>
+            <p>一、二、三等奖用户，我司会直接联系您预留的手机号码，为您发送奖项。</p>
+            <p>参与奖用户，请您联系我司客服可获取20元糯米券。</p>
+            <span class="title staffPhone">客服热线：</span>
+            <p>17718562114</p>
+            <p>17310328114</p>
+        </div>
+    </div>
+
+</body>
+    <script>
+    nianyefan.searchAwardPage.init();
+    checkAPPAndLogin();
+    if(window.usertoken){
+        $.post("/YearFood/get_user"+usertoken.token.replace("+","."),res=>{
+            if(res.user_id!=null&&res.user_id!=""){
+                window.userinfo=res;
+            }else{
+                alert("随机用户");
+                window.userinfo={user_id:Math.floor(Math.random()*10)+''+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+'',tel:'1568854'+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+''};
+            }
+        },"json");
+    }
+    if(window.userinfo){
+        querylucky(tel);
+    }
+    function querylucky(tel){
+         $.post("/YearFood/lucky/"+tel,function(res){
+           //显示是否获奖的信息
+           if(res.status==2){
+                alert("没到开奖时间");
+           }else if(res.status==3){
+                alert("此用户没有参加活动");
+           }else if(res.status==1){
+                $(".firstLine").html(res.content.split("，")[0]);
+                $(".secondLine").html(res.content.split("，")[1]);
+
+           }
+        },"json");
+    }
+    function searchluck(){
+        var tel=$("#teltext").val();
+        if(!/^\d+$/.test(tel)){
+            alert("请输入正确的查询信息");
+        }
+        querylucky(tel);
+    }
+    </script>
+    <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?8686c844404cafcf172ba7591add84a3";
+      var s = document.getElementsByTagName("script")[0]; 
+      s.parentNode.insertBefore(hm, s);
+    })();
+    </script>
+</html>

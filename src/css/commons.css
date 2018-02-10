@@ -1,0 +1,45 @@
+@charset='utf-8';
+/*这这个是为了解决andriod手机上上下滑动后导致的按钮的Y坐标偏移的问题*/
+html,body{}
+body{margin:0;padding:0;list-style:none;font-family:'微软雅黑';background:#ee1b24;font-size:0.24rem;}
+.box{background:#fff;}
+.box-inner{box-sizing:border-box;padding:0 0.3rem;}
+.flexcont{display:flex;justify-content:space-between;}
+.flexitem{flex:1;}
+.full_text{display:block;box-sizing:border-box;width:100%;border:none;outline:none;color:#333;height:100%;}
+.wrapper0{margin:0 0.3rem;}
+.wrapper1{margin:0 0.13rem;}
+.wel-img{width:100%;}
+.jn-photo-file{position:absolute;clip:rect(0 0 0 0);width:0;}
+.jn-photo-img{width:1.64rem;height:1.64rem;display:inline-block;background: url(./../images/btn_camera.png) center no-repeat;background-size: 100% 100%;}
+.jn-photo-cont{text-align: center;margin-top:0.63rem;}
+.jn-photo-top{margin-top:2.5rem;}
+.jn-photo-inner{position: relative;text-align: center;}
+.jn-text{font-size:0.28rem;color:#fff;text-align:center;line-height:0.48rem;}
+.jn-alink{text-decoration: none;color:#FFC960;}
+.jn-tip{font-size:0.24rem;color:rgba(255,255,255,0.6);line-height:0.4rem;}
+.jn-img-cont{overflow: hidden;margin-top:0.26rem;}
+.jn-noimg{height:1.3rem;}
+.jn-textarea-cont{margin-top:0.26rem;}
+.jn-textarea{box-sizing:border-box;width:100%;height:2.4rem;border:0.04rem solid #3D0303;border-radius: 0.1rem;padding:0.2rem;font-size:0.34rem;color:#232922;overflow: auto;}
+.po-agree{display:inline-block;width:0.3rem;height:0.3rem;background:url(./../images/icon_right.png) center no-repeat;background-size:100% 100%;margin-right: 0.15rem;vertical-align: middle;}
+.po-noagree{display:inline-block;width:0.3rem;height:0.3rem;box-sizing: border-box;border:0.02rem solid #D8D8D8;border-radius: 0.06rem;margin-right: 0.15rem;vertical-align: middle;}
+.jn-foragree{line-height:0.58rem;text-indent: 0.2rem;color:#FFFFFF;font-size:0.24rem;}
+.jn-foragree a{text-decoration: none;color:#FFFFFF;}
+.jnbtn-disabled{line-height:0.82rem;width:3.34rem;background:url(./../images/btn_quxiao.png) center no-repeat;background-size: 100% 100%;font-size: 0.38rem;color:#410003;text-align: center;display: inline-block;text-decoration: none;}
+.jnbtn{line-height: 0.82rem;width:3.34rem;background:url(./../images/btn_shangchuan.png) center no-repeat;background-size: 100% 100%;font-size:0.38rem;color:#410003;text-align: center;display: inline-block;text-decoration: none;}
+.jn-btn-sp{width:0.22rem;}
+.jnbtn-cont{margin-top:0.36rem;margin-bottom:0.1rem;}
+.jn-img-inner{margin-right:-0.1rem;font-size: 0;text-align: left;}
+.jn-imgitem{width:33.333333%;display:inline-block;margin-bottom:0.13rem;}
+.jn-img-content{margin-right:0.1rem;position:relative;box-sizing: border-box;border:0.04rem solid #FFFFFF;height:1.66rem;overflow: hidden;background:#858585;}
+.jn-imgitem img{max-width:100%;max-height:100%;position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);}
+.jn-del{position:absolute;z-index: 2;right:0rem;top:0rem;width:0.38rem;height:0.38rem;background:#fff;border-bottom-left-radius: 0.38rem;font-size:0.28rem;text-align: right;line-height: 0.28rem;}
+.deli-title{color:#FFFFFF;font-size:0.36rem;font-weight: bold;line-height: 1rem;text-align: center;}
+.rkitem + .rkitem{margin-top:0.2rem;}
+.footwin{position:fixed;z-index:144;right:0;bottom:0.35rem;line-height:0.3rem;background:#fff;border-top-left-radius: 0.39rem;border-bottom-left-radius: 0.39rem;padding:0.24rem 0;display: flex;}
+.foot-item{flex:1;font-size:0.28rem;color:#FF7B26;padding:0 0.25rem;white-space:nowrap;}
+.foot-item + .foot-item{border-left:0.01rem solid #DFDFDF;}
+.foot-join{display:inline-block;width:0.3rem;height:0.3rem;background:#FCCFD2 url(./../images/btn_canyu.png) center no-repeat;background-size:70% auto;text-align:center;vertical-align: middle;margin-right:0.07rem;}
+.foot-back{display:inline-block;width:0.3rem;height:0.3rem;background:#FCCFD2 url(./../images/btn_fanhui.png) center no-repeat;background-size:70% auto;text-align:center;vertical-align: middle;margin-right:0.07rem;}
+

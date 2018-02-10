@@ -1,0 +1,307 @@
+@charset "UTF-8";
+/*清除浮动*/
+/*向左浮动,向右浮动*/
+.searchAwardPage .searchBox .searchBtn {
+  float: right;
+}
+
+/*超出部分隐藏*/
+/*块元素水平居中*/
+/*flex*/
+/*白色*/
+/*段落超出使用省略号*/
+/*投票的列表*/
+/*投票按钮*/
+/*搜索框*/
+.searchAwardPage .searchBox {
+  padding: 0 0.5rem;
+  height: 3.33rem;
+  line-height: 3.33rem;
+  border-radius: 2rem;
+  border: 0.08rem solid #000000;
+  background-color: #ffffff;
+}
+.searchAwardPage .searchBox input {
+  width: 85%;
+  height: 1.5rem;
+  border: none;
+  font-size: 1.25rem;
+}
+.searchAwardPage .searchBox .searchBtn {
+  margin-top: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  vertical-align: middle;
+}
+
+/*搜索的btn*/
+.searchAwardPage .searchBox .searchBtn {
+  background: url("./../images/searchIcon.png") 100%/100%;
+}
+
+/*btn*/
+.awardPage .searchBtn {
+  font-weight: bold;
+  color: #3c0204;
+  background: url("./../images/largeBtn.png") no-repeat 100% 99%/100% 100%;
+}
+
+/*userSelect:none*/
+.homePage .join,
+.homePage .vote, .homePage .award, .homePage .adviseMsg, .awardPage li, .awardPage .searchBtn, .searchAwardPage .awardMsg .firstLine, .searchAwardPage .awardMsg .secondLine, .searchAwardPage .notice .title, .searchAwardPage .notice .staffPhone, .searchAwardPage .notice p {
+  -moz-user-select: none;
+  /*火狐*/
+  -webkit-user-select: none;
+  /*webkit浏览器*/
+  -ms-user-select: none;
+  /*IE10*/
+  -khtml-user-select: none;
+  /*早期浏览器*/
+  user-select: none;
+}
+
+/*正好占满一屏的设置*/
+.homePage .fullPage {
+  width: 100%;
+  height: auto;
+}
+
+div, ul, li, textarea {
+  -moz-box-sizing: border-box;
+  /* Firefox */
+  -webkit-box-sizing: border-box;
+  /* Safari */
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background-color: #ee1b25;
+}
+
+img {
+  vertical-align: top;
+}
+.box {
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.homePage .join,
+.homePage .vote {
+  fill: #410003;
+}
+.homePage .award {
+  fill: #3f3f3f;
+}
+.homePage .section2 {
+  text-align: center;
+}
+.homePage .adviseMsg {
+  fill: #3d0303;
+}
+
+/*正好一屏*/
+@media only screen and (max-aspect-ratio: 99 / 100) {
+  html,
+  body {
+    height: 100%;
+  }
+
+  .box,
+  .section1 {
+    height: 100%;
+    text-align: center;
+  }
+
+  .homePage .fullPage {
+    width: auto;
+    height: 100%;
+  }
+}
+@media only screen and (min-aspect-ratio: 1 / 100) and (max-aspect-ratio: 64 / 100) {
+  .section1 {
+    position: relative;
+  }
+
+  .homePage .fullPage {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto auto;
+    width: 100%;
+    height: auto;
+  }
+}
+/*获奖页面*/
+.awardPage {
+  position: relative;
+}
+.awardPage .pic {
+  width: 100%;
+}
+.awardPage .specialAward,
+.awardPage .commonAward {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+}
+.awardPage .specialAward {
+  top: 8.67rem;
+  line-height: 1.75rem;
+  color: #815a52;
+  font-size: 1rem;
+}
+.awardPage .commonAward {
+  top: 32.8rem;
+  font-size: 1.05rem;
+  color: #fcb758;
+  overflow: hidden;
+}
+.awardPage .commonAward .slide {
+  position: absolute;
+  top: 0;
+  display: block;
+  width: 100%;
+}
+.awardPage .commonAward li {
+  height: 2rem;
+  line-height: 2rem;
+}
+.awardPage .searchBtn {
+  position: absolute;
+  top: 42.92rem;
+  width: 50%;
+  left: 25%;
+  font-size: 1.5rem;
+  line-height: 3.33rem;
+}
+
+/*竖屏下且屏幕的宽高比大于图片的宽高比的样式*/
+@media only screen and (max-aspect-ratio: 99 / 100) {
+  .box {
+    max-width: none;
+    height: 100%;
+  }
+
+  .awardPage {
+    height: 100%;
+    overflow: hidden;
+    text-align: center;
+  }
+  .awardPage .pic {
+    width: auto;
+    height: 100%;
+  }
+  .awardPage .specialAward {
+    top: 16.58%;
+  }
+  .awardPage .commonAward {
+    top: 65.5%;
+  }
+  .awardPage .searchBtn {
+    top: 85.4%;
+  }
+}
+/*竖屏下宽高比与图片不一致时处理*/
+@media only screen and (min-aspect-ratio: 1 / 100) and (max-aspect-ratio: 63 / 100) {
+  .awardPage .pic {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto auto;
+    width: 100%;
+    height: auto;
+  }
+}
+/*获奖查询搜索页*/
+.searchAwardPage {
+  padding-top: 1.87rem;
+}
+.searchAwardPage .searchBox,
+.searchAwardPage .awardMsg,
+.searchAwardPage .notice {
+  margin-right: auto;
+  margin-left: auto;
+  width: 92%;
+}
+.searchAwardPage .searchBox {
+  margin-bottom: 1.2rem;
+}
+.searchAwardPage .awardMsg {
+  height: 26.7rem;
+  line-height: 2.4rem;
+  background-image: url("./../images/searchAwardPage_reel.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  text-align: center;
+  color: #410003;
+  font-weight: bold;
+}
+.searchAwardPage .awardMsg .firstLine {
+  font-size: 1.75rem;
+}
+.searchAwardPage .awardMsg .secondLine {
+  font-size: 1.33rem;
+}
+.searchAwardPage .awardMsg.type1 {
+  padding-top: 3.5rem;
+}
+.searchAwardPage .awardMsg.type2 {
+  padding-top: 4rem;
+}
+.searchAwardPage .notice {
+  padding-left: 0.85rem;
+  text-align: left;
+  user-select: none;
+}
+.searchAwardPage .notice .title {
+  font-size: 1.33rem;
+  color: #ffffff;
+}
+.searchAwardPage .notice .staffPhone {
+  display: block;
+  margin-top: 1.4rem;
+}
+.searchAwardPage .notice p {
+  color: #fca853;
+  line-height: 1.7rem;
+  font-size: 1.07rem;
+}
+
+/*竖屏下且屏幕的宽高比大于图片的宽高比的样式*/
+@media only screen and (max-aspect-ratio: 99 / 100) {
+  .searchAwardPage {
+    height: 92%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+  }
+  .searchAwardPage .searchBox {
+    margin-bottom: 3rem;
+  }
+  .searchAwardPage .awardMsg {
+    -webkit-box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+  }
+  .searchAwardPage .notice {
+    padding-bottom: 1rem;
+  }
+}

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@media only screen and (min-width: 320px) and (max-width: 479px) {
+  html {
+    font-size: 12px;
+  }
+}
+@media only screen and (min-width: 480px) and (max-width: 639px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media only screen and (min-width: 750px) {
+  html {
+    /* font-size: 16px; */
+  }
+}
+
+body,button,dd,dl,dt,h1,h2,h3,h4,h5,h6,input,li,ol,p,ul{margin:0;padding:0;font-weight:400}
+
+p.thoughts {}
+body{/* color: #ee1b25; *//* font-size:1.25rem; *//* line-height:2.5rem; */font-family:'microsoft yahei',Simsun,Tahoma,Geneva,'Heiti SC';}
+html,body{}
+img{border:0}
+li,ul{list-style:none}
+li img{display:block}
+a{color:#333;text-decoration:none;outline:0}
+a:hover{color:#f03901;text-decoration:underline}
+input,textarea{box-sizing:content-box;outline:0;font-family:inherit;border:0;font-size:1.25rem;}
+button{padding:0;border:0;cursor:pointer;font-family:'microsoft yahei';box-sizing:content-box;outline:0}
+input[type="text"]{border:1px solid #B9C8E7;height:1.75rem;}
+input[type="submit"],input[type="button"]{border-radius:0.5rem;cursor:pointer;box-shadow:0 0 0 1px #A3C3E6;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#FFF), to(#EBF2F9));border:1px solid #fff;color:##386790;height:1.75rem;}
+input[type="checkbox"]{vertical-align:middle;}
+input {-webkit-appearance: none;}
+input, textarea {font-size: 1.25rem;}
+a:visited,a:hover {text-decoration: none;}
+a {-webkit-tap-highlight-color: rgba(255, 255, 255, 0);-webkit-user-select: none;-moz-user-focus: none;-moz-user-select: none;}
+img {vertical-align: bottom;}
+.box {padding: 0;}
