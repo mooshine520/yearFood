@@ -19,7 +19,7 @@
 	</Modal>
 	<Modal  type='alert' @took='okfall2' :showstate='novotechance'>
 		<span slot='tlt'>提示</span>
-		<div slot='text'>没有投票机会了！</div>
+		<div slot='text'>今日投票次数已用完！</div>
 	</Modal>
 	<Modal  type='alert' @took='okfall3' :showstate='gameover'>
 		<span slot='tlt'>提示</span>
