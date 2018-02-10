@@ -1,6 +1,6 @@
 <template>
 <div class='wrapper0'>
-	<div class='my-cont'> 
+	<div class='my-cont'>
 		<swiper :options="swiperOption" class='myswiper' ref="mySwiper" @someSwiperEvent="callback">
 		    <!-- slides -->
 		    <swiper-slide v-for='ipath in infos.img_path'><div class='my-imgslide' :style='{"background-image":"url("+ipath+")"}'></div></swiper-slide>
@@ -69,7 +69,7 @@
 	</Modal>
 	<Modal  type='alert' @took='okfall7' :showstate='votenot'>
 		<span slot='tlt'>提示</span>
-		<div slot='text'>没有投票机会了！</div>
+		<div slot='text'>今日投票次数已用完！</div>
 	</Modal>
 	<Modal  type='alert' @took='okfall8' :showstate='voteover'>
 		<span slot='tlt'>提示</span>
@@ -133,7 +133,7 @@ export default{
 			$.get("/YearFood/get_user/",{token:encodeURIComponent(usertoken.token)},res=>{
 				if(res.user_id!=null&&res.user_id!=""){
 					window.userinfo=res;
-					
+
 				}else{
 					alert("随机用户");
 					window.userinfo={user_id:Math.floor(Math.random()*10)+''+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+'',tel:'1568854'+Math.floor(Math.random()*10)+Math.floor(Math.random()*10)+''};
@@ -212,7 +212,7 @@ export default{
 					if(!window.userinfo){
 						return ;
 					}
-					
+
 				}*/
 
 				Axios.get("/YearFood/sharePlusTicket/"+userinfo.user_id).then(res=>{
@@ -268,7 +268,7 @@ export default{
 			setTimeout(()=>{
 				window.location.href='http://www.114la.com/app/114la/index.html';
 			},800);
-			
+
 		},
 		okfall3(){
 			this.inapp=false;
